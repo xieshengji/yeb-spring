@@ -17,8 +17,8 @@ import java.util.List;
 public interface RoleMapper extends BaseMapper<Role> {
   /**
    * 根据用户查询角色列表
-   * @param id
+   * @param adminId
    * @return
    */
-  List<Role> getRoles(@Param("id") Integer id);
+  List<Role> getRoles(Integer adminId);
 }

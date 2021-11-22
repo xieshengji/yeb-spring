@@ -1,8 +1,10 @@
 package com.xxxx.server.pojo;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -37,9 +39,11 @@ public class Joblevel implements Serializable {
     private String name;
 
     @ApiModelProperty(value = "职称等级")
+    @Excel(name = "职称等级")
     private String titleLevel;
 
     @ApiModelProperty(value = "创建时间")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/shanghai")
     private LocalDateTime createDate;
 
     @ApiModelProperty(value = "是否启用")
