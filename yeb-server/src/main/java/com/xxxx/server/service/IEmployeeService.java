@@ -13,42 +13,40 @@ import java.util.List;
  *  服务类
  * </p>
  *
- * @author qiuxuechen
- * @since 2021-08-07
+ * @author stx
+ * @since 2021-10-16
  */
 public interface IEmployeeService extends IService<Employee> {
+
   /**
-   * 获取所有员工
+   * 获取所有员工(分页)
    * @param currentPage
    * @param size
    * @param employee
    * @param beginDateScope
    * @return
    */
-  RespPageBean getAllEmployee(Integer currentPage, Integer size, Employee employee, LocalDate[] beginDateScope);
+  RespPageBean getEmployeeByPage(Integer currentPage, Integer size, Employee employee, LocalDate[] beginDateScope);
+
   /**
-   * 获取最大工号
+   * 获取工号
    * @return
    */
   RespBean maxWorkID();
 
-  /**
-   * 添加新员工
-   * @param employee
-   * @return
-   */
-  RespBean addEmployee(Employee employee);
+//  /**
+//   * 添加员工
+//   * @param employee
+//   * @return
+//   */
+//  RespBean addEmp(Employee employee);
 
   /**
-   * 更新员工
-   * @param employee
-   * @return
-   */
-  RespBean updateEmployee(Employee employee);
-  /**
    * 查询员工
+   * @param id
    * @return
    */
+  List<Employee> getEmployee(Integer id);
 
   /**
    * 获取所有员工工资账套

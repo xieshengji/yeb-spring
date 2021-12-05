@@ -10,15 +10,16 @@ import java.util.List;
  *  Mapper 接口
  * </p>
  *
- * @author qiuxuechen
- * @since 2021-08-07
+ * @author stx
+ * @since 2021-10-16
  */
 public interface DepartmentMapper extends BaseMapper<Department> {
+
   /**
    * 获取所有部门
    * @return
    */
-  List<Department> getAllDepartment(Integer id);
+  List<Department> getAllDepartments(Integer parentId);
 
   /**
    * 添加部门

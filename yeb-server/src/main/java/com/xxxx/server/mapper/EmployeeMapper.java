@@ -14,32 +14,26 @@ import java.util.List;
  *  Mapper 接口
  * </p>
  *
- * @author qiuxuechen
- * @since 2021-08-07
+ * @author stx
+ * @since 2021-10-16
  */
 public interface EmployeeMapper extends BaseMapper<Employee> {
+
   /**
-   * 获取所有员工
-   * @param employeePage
+   * 获取所有员工（分页）
+   * @param page
    * @param employee
    * @param beginDateScope
-   * @return
    */
-  IPage<Employee> getAllEmployee(@Param("employeePage") Page<Employee> employeePage, @Param("employee") Employee employee, @Param("beginDateScope") LocalDate[] beginDateScope);
+  IPage<Employee> getEmployeeByPage(Page<Employee> page,@Param("employee") Employee employee
+    ,@Param("beginDateScope") LocalDate[] beginDateScope);
 
   /**
-   * 获取list的员工
-   * @param ids
-   * @return
-   */
-  List<Employee> getEmployee(@Param("ids") Integer ids);
-
-  /**
-   * 根据id获取员工信息（包括部门职位）
+   * 查询员工
    * @param id
    * @return
    */
-  Employee getEmployeeByOne(@Param("id") Integer id);
+  List<Employee> getEmployee(Integer id);
 
   /**
    * 获取有所员工工资账套（分页）

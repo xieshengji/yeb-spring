@@ -2,6 +2,7 @@ package com.xxxx.server.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xxxx.server.pojo.Admin;
+import com.xxxx.server.pojo.Menu;
 import com.xxxx.server.pojo.RespBean;
 import com.xxxx.server.pojo.Role;
 import org.springframework.security.core.Authentication;
@@ -14,21 +15,23 @@ import java.util.List;
  *  服务类
  * </p>
  *
- * @author qiuxuechen
- * @since 2021-08-07
+ * @author stx
+ * @since 2021-10-16
  */
 public interface IAdminService extends IService<Admin> {
+
   /**
-   * 登录之后返回token
+   * 登陆之后返回token
    * @param username
    * @param password
+   * @param code
    * @param request
    * @return
    */
-  RespBean login(String code, String username, String password, HttpServletRequest request);
+  RespBean login(String username, String password, String code, HttpServletRequest request);
 
   /**
-   *  根据username返回用户对象
+   * 根据用户名获取用户
    * @param username
    * @return
    */
@@ -36,16 +39,17 @@ public interface IAdminService extends IService<Admin> {
 
   /**
    * 根据用户id查询角色列表
-   * @param id
+   * @param adminId
    * @return
    */
-  List<Role> getRoles(Integer id);
+  List<Role> getRoles(Integer adminId);
 
   /**
    * 获取所有操作员
-   * @param name
+   * @param keywords
+   * @return
    */
-  List<Admin> getAllAdmins(String name);
+  List<Admin> getAllAdmins(String keywords);
 
   /**
    * 更新操作员角色
@@ -53,14 +57,7 @@ public interface IAdminService extends IService<Admin> {
    * @param rids
    * @return
    */
-  RespBean updateAdmin(Integer adminId, Integer[] rids);
-
-  /**
-   *  删除操作员及角色
-   * @param adminId
-   * @return
-   */
-  RespBean deleteAdmin(Integer adminId);
+  RespBean updateAdminRole(Integer adminId, Integer[] rids);
 
   /**
    * 更新用户密码

@@ -75,8 +75,8 @@ public class JoblevelController {
 
   @ApiOperation(value = "批量删除职称信息")
   @DeleteMapping("/")
-  public RespBean deleteJoblevel(Integer[] id) {
-    boolean remove = joblevelService.removeByIds(Arrays.asList(id));
+  public RespBean deleteJoblevel(Integer[] ids) {
+    boolean remove = joblevelService.removeByIds(Arrays.asList(ids));
     if (remove) {
       return RespBean.success("批量删除职称信息成功");
     }
